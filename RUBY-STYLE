@@ -41,6 +41,14 @@ personal preferences. The original can be found
 
 * Avoid multiline ?:, use if.
 
+* Indent assignment of complex statements the same as the statements themselves:
+
+    x = if foo?
+      bar
+    else
+      baz
+    end
+
 * Use parentheses when calling methods when they're worded as commands or look
   like "functions". For example:
 
