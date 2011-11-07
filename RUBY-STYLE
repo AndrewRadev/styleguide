@@ -76,6 +76,14 @@ personal preferences. The original can be found
 * Use non-OO regexps (they won't make the code better).  Freely use
   =~, $0-9, $~, $` and $' when needed.
 
+* Never use "unless" if the conditions include more than one term:
+
+    # This is OK:
+    unless user.password_required?
+
+    # This is NOT OK:
+    unless user.facebook_user? or user.crypted_password.blank?
+
 
 == Naming:
 
