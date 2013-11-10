@@ -1,0 +1,110 @@
+= Andrew Radev's Vimscript Style Guide
+
+This is inspired by Christian Neukirchen's Ruby Style Guide. The original can
+be found [here](https://github.com/chneukirchen/styleguide).
+
+Note that Vimscript has almost no hard conventions. The community doesn't
+really enforce a strict style guide. This guide is merely my own personal
+coding preferences, some of which are taken from my preferences of other
+languages (e.g. indentation).
+
+
+== Formatting:
+
+* Use ASCII (or UTF-8, if you have to).
+
+* Use 2 space indent, no tabs.
+
+* Use Unix-style line endings.
+
+* Use spaces around operators, after commas, colons and semicolons,
+  around { and before }.
+
+* No spaces after (, [ and before ], ).
+
+* Use an empty line before the return value of a method (unless it
+  only has one line), and an empty line between functions.
+
+* Use empty lines to break up a long method into logical paragraphs.
+
+* Keep lines fewer than 80 characters.
+
+* Avoid trailing whitespace like the plague.
+
+
+== Syntax:
+
+* Avoid multiline ?:, use if.
+
+* Use line continuations liberally to break up lists and dictionaries, but
+  avoid them for long expressions. Consider extracting some variables instead.
+
+
+== Naming:
+
+* Use CamelCase for functions even when they're prefixed with a modifier like
+  "s:" or "b:". Consistency rules.
+
+* Use snake_case for variables.
+
+* Use _ or names prefixed with _ for unused variables.
+
+
+== Plugin structure
+
+* Use autoloaded functions for the bulk of the logic. Keep
+  "plugin/my_plugin.vim" lean and free of immediate calls to the autoloaded
+  functions (to avoid premature loading).
+
+* Use script-local functions for "private", script-specific methods.
+
+* Use commands as the user interface. Commands can be mapped by the user
+  to anything they want and can provide a good default interface, especially
+  when they provide completion and simple argument handling.
+
+* Never define mappings automatically, unless this is a core functionality of
+  the plugin. Prefer to define mappings on with a setting.
+
+* Provide global variables, namespaced by your plugin name for settings. Example:
+
+    let g:my_plugin_name_default_mappings = 1
+    let g:my_plugin_name_buffer_command   = 'vsplit new'
+
+* Use Vim's (admittedly limited) OOP capabilities whenever it makes sense to
+  encapsulate state with logic. Try to keep it very simple.
+
+
+== Comments:
+
+* Write some documentation on every function and place inline comments for more
+  complicated tricks. Vimscript can be fairly difficult to read. And, owing to
+  the nature of Vimscript as a part of a text editor, some maneuvers were
+  probably written down in the way they were due to experimental results. Try
+  to have a short explanation for them.
+
+* Comments longer than a sentence are capitalized and use punctuation.
+
+
+== The rest:
+
+* Avoid long functions.
+
+* Avoid long parameter lists.
+
+
+== General:
+
+* Be consistent.
+
+* Keep the code simple.
+
+* Don't overdesign.
+
+* Don't underdesign.
+
+* Avoid bugs.
+
+* Read other style guides and apply the parts that don't dissent with
+  this list.
+
+* Use common sense.
