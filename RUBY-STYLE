@@ -150,14 +150,13 @@ personal preferences. The original can be found
 
 == General:
 
+* Be consistent.
+
 * Code in a functional way, avoid mutation when it makes sense.
 
 * Do not mutate arguments unless that is the purpose of the method.
 
 * Do not mess around in core classes when writing libraries.
-
-* Do not program defensively.
-  (See http://www.erlang.se/doc/programming_rules.shtml#HDR11.)
 
 * Keep the code simple.
 
@@ -169,7 +168,5 @@ personal preferences. The original can be found
 
 * Read other style guides and apply the parts that don't dissent with
   this list.
-
-* Be consistent.
 
 * Use common sense.
